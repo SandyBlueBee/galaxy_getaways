@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Starship.create(name:"etoile rouge", model:"oui", starship_class:"t2", manufacturer:"ford", length:"55", passangers:"3", max_speed:"8", hyperdrive_rating:"4", price:"5", location:"tatouin", user_id:"1")
+Booking.create(start_moth:"4", status:true)
