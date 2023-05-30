@@ -9,3 +9,6 @@ Starship.destroy_all
 
 Starship.create!(name: "Millenium Falcon", model: "T-34", manufacturer: "Corellia", hyperdrive_rating: 2, price: 180000, max_speed: 200, passangers: 1, length: 10, location: "Corellia", user_id: 1)
 Starship.create!(name: "Desol", model: "T-34", manufacturer: "Corellia", hyperdrive_rating: 2, price: 180000, max_speed: 200, passangers: 1, length: 10, location: "Corellia", user_id: 1)
+
+Starship.create(name:"etoile rouge", model:"oui", starship_class:"t2", manufacturer:"ford", length:"55", passangers:"3", max_speed:"8", hyperdrive_rating:"4", price:"5", location:"tatouin", user_id:"1")
+Booking.create(start_moth:"4", status:true)
