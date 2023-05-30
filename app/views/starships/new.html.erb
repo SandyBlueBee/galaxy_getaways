@@ -2,11 +2,11 @@
 
 <h1>New Starship</h1>
 
-<%= simple_form_for(@starship) do |f| %>
+<%= simple_form_for(@user, @starship) do |f| %>
   <%= f.input :name %>
   <%= f.input :model %>
-  <%# <%= f.input :starship_class %>
-  <%# <%= f.input :manufacturer %>
+  <%= f.input :starship_class <%>
+  <%= f.input :manufacturer <%>
   <%= f.input :length,  as: :integer %>
   <%= f.input :passangers,  as: :integer %>
   <%= f.input :max_speed, as: :integer %>
