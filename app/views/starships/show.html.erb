@@ -1,0 +1,18 @@
+
+<div>
+  <div class="image"></div>
+  <div>
+    <h1>name:<%= @starship.name %></h1>
+    <h2>model:<%= @starship.model %></h2>
+    <%# <p>class:<%= @starship.starship_class</p> %>
+    <%# <p>manufacturer:<%= @starship.manufacturer</p> %>
+    <p>length:<%= @starship.length %></p>
+    <p>passengers:<%= @starship.passangers  %></p>
+    <p>rating: <%= @starship.hyperdrive_rating %></p>
+    <p>price:<%= @starship.price %></p>
+  </div>
+</div>
+
+<%= link_to "Edit",  edit_starship_path %>
+<%= link_to "Back to home",  starships_path %>
+<%= link_to "Delete",  starship_path(@starship), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>

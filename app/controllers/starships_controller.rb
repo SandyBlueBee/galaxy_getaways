@@ -14,6 +14,7 @@ class StarshipsController < ApplicationController
 
   def create
     @starship = Starship.new(starship_params)
+    @starship.user = current_user
     if @starship.save
       redirect_to starship_path(@starship)
     else
