@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_29_210600) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_30_124630) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_210600) do
     t.integer "passangers"
     t.integer "max_speed"
     t.integer "hyperdrive_rating"
-    t.integer "price"
+    t.bigint "price"
     t.string "location"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
