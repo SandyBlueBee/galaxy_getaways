@@ -14,4 +14,4 @@ Starship.create(
   name: "etoile rouge", model: "oui", starship_class: "t2", manufacturer: "ford", length: "55",
   passangers: "3", max_speed: "8", hyperdrive_rating: "4", price: "5", location: "tatouin", user_id: "1"
 )
-Booking.create(start_month: "4", status: true)
+# Booking.create(start_month: "4", status: true)
