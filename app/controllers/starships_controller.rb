@@ -6,6 +6,7 @@ class StarshipsController < ApplicationController
 
   def show
     @starship = Starship.find(params[:id])
+    authorize @starship
   end
 
   def new
