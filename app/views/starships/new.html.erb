@@ -2,6 +2,8 @@
 
 <h1>New Starship</h1>
 
+<%= cl_image_tag(Starship.last.photos.first.key) %>
+
 <%= simple_form_for(@starship) do |f| %>
   <%= f.input :name %>
   <%= f.input :model %>
