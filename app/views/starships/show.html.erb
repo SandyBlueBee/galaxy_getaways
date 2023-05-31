@@ -17,7 +17,9 @@
       <% end %>
     </div>
     <div>
-      <%= link_to "Book this starship", new_starship_booking_path(@starship), class: "button" %>
+      <% if current_user.id == @starship.user_id%>
+        <%= link_to "Book this starship", new_starship_booking_path(@starship), class: "button" %>
+      <% end %>
 
     </div>
   </div>
