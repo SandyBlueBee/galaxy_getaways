@@ -10,6 +10,9 @@
     <p>passengers:<%= @starship.passangers  %></p>
     <p>rating: <%= @starship.hyperdrive_rating %></p>
     <p>price:<%= @starship.price %></p>
+    <% @starship.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
   </div>
 </div>
 
