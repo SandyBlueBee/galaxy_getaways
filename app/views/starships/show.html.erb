@@ -13,6 +13,13 @@
   </div>
 </div>
 
+<div>
+  <h1>New booking</h1>
+  <%# <%= simple_form_for(@booking, url:starship_bookings_path(@starship.id), method: :post) do |f| %>
+    <%# <%= f.input :start_month %>
+    <%# <%= f.submit %>
+  <%# <% end %>
+</div>
 <%= link_to "Edit",  edit_starship_path %>
 <%= link_to "Back to home",  starships_path %>
 <%= link_to "Delete",  starship_path(@starship), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
