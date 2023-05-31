@@ -11,8 +11,11 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.starship = @starship
+    @booking.user = current_user
+    @booking.status = 0
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to starship_path(@starship)
     else
       render :new, status: :unprocessable_entity
     end
@@ -31,6 +34,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_month, :status)
+    params.require(:booking).permit(:start_month)
+
   end
 end
