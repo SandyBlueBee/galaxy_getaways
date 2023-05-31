@@ -10,8 +10,20 @@
     <p>passengers:<%= @starship.passangers  %></p>
     <p>rating: <%= @starship.hyperdrive_rating %></p>
     <p>price:<%= @starship.price %></p>
+    <% @starship.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
   </div>
 </div>
+
+<div>
+  <h1>New booking</h1>
+  <%# <%= simple_form_for(@booking, url:starship_bookings_path(@starship.id), method: :post) do |f| %>
+    <%# <%= f.input :start_month %>
+    <%# <%= f.submit %>
+  <%# <% end %>
+</div>
+
 
 <% if policy(@starship).edit? %>
 <%= link_to "Edit",  edit_starship_path %>
