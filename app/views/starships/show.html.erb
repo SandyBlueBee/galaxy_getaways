@@ -22,7 +22,9 @@
     </div>
   </div>
   <div class="inline">
-    <%= link_to "Edit",  edit_starship_path, class: "button" %>
-    <%= link_to "Delete",  starship_path(@starship), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button" %>
+    <% if policy(@starship).edit? %>
+      <%= link_to "Edit",  edit_starship_path, class: "button" %>
+    <% end %>
+    <%= link_to "Delete",  starship_path(@starship), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button" if policy(@starship).destroy? %>
   </div>
 </div>

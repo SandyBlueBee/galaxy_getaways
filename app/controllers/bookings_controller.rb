@@ -1,9 +1,9 @@
 class BookingsController < ApplicationController
   before_action :set_starship, only: %i[new create]
+  before_action :authorize_booking, only: %i[new create edit update destroy]
 
   def index
-    @bookings = Booking.all
-    @starships = Starship.all
+    @bookings = policy_scope(Booking)
   end
 
   def new
@@ -30,6 +30,10 @@ class BookingsController < ApplicationController
   end
 
   private
+
+  def authorize_booking
+    authorize @booking
+  end
 
   def set_starship
     @starship = Starship.find(params[:starship_id])
