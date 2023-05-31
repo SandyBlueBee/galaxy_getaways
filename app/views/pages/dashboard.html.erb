@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>My dashboard</h1>
+  <div class="inline">
+    <%= link_to "Add a new starship", new_starship_path, class: "button" %>
+  </div>
+  <h2>My starships</h2>
+  <div class="grid">
+    <% @user.starships.each do |starship| %>
+      <div class="starship-card">
+        <div class="image"></div>
+        <div>
+          <div class="text-div">
+            <p>name: <%=link_to starship.name, starship_path(starship) %></p>
+            <p>price: $<%=starship.price %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
