@@ -13,6 +13,10 @@
   </div>
 </div>
 
+<% if policy(@starship).edit? %>
 <%= link_to "Edit",  edit_starship_path %>
+<% end %>
+
 <%= link_to "Back to home",  starships_path %>
-<%= link_to "Delete",  starship_path(@starship), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+
+<%= link_to "Delete",  starship_path(@starship), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(@starship).destroy? %>
