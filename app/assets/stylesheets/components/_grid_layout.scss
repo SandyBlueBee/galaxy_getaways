@@ -14,6 +14,11 @@
 .image {
   border: 2px solid yellow;
   width: 40%;
+  overflow: hidden;
+}
+
+.image img {
+  width: 100%;
 }
 
 .text-div {

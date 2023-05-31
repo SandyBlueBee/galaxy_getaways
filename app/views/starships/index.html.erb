@@ -6,7 +6,7 @@
   <div class="grid">
     <% @starships.each do |starship| %>
       <div class="starship-card">
-      <div class="image"></div>
+      <div class="image"><%= cl_image_tag starship.photos.first.key%></div>
       <div>
       <div class="text-div">
         <p>name: <%=link_to starship.name, starship_path(starship) %></p>
