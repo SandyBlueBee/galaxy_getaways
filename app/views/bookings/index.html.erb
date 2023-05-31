@@ -1,1 +1,11 @@
-<h1>totoindex</h1>
+<h1>All your bookings</h1>
+
+<ul><% @bookings.each do |booking| %>
+  <li>
+    <p>Starship:        <%= booking.starship.name %></p>
+    <p>Starting month:  <%= booking.start_month %></p>
+    <p>Status:          <%= booking.status %></p>
+  </li>
+</ul>
+
+<% end %>
