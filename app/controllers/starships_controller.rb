@@ -1,5 +1,6 @@
 class StarshipsController < ApplicationController
   before_action :set_starship, only: %i[show edit update destroy]
+
   before_action :authorize_starship, only: %i[show new create edit update destroy]
   def index
     @starships = policy_scope(Starship)
