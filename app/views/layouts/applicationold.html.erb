@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page avec navbar et annonces</title>
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Styles de la navbar */
+    .navbar {
+      background-color: #333;
+      height: 50px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 20px;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      display: flex;
+    }
+
+    .navbar li {
+      margin-right: 20px;
+    }
+
+    .navbar li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .search-bar {
+      width: 200px;
+      margin-right: 20px;
+    }
+
+    /* Styles de l'espace entre la navbar et les annonces */
+    .space {
+      height: 200px;
+    }
+
+    /* Styles de la div d'annonce */
+    .annonces-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+      margin: 40px;
+    }
+
+    .annonce {
+      background-color: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      height: 300px;
+      width: 250px;
+    }
+
+    /* Styles de la div avec l'image en fond d'écran */
+    .background-div {
+      /* background-image: url('chemin/vers/votre/image.jpg'); */
+      background-size: cover;
+      background-position: center;
+      height: calc(75vh - 200px);
+      margin: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <input type="text" class="search-bar" placeholder="Rechercher...">
+    <ul>
+      <li><button>Add an Offer</button></li>
+      <li><button>My Bookings</button></li>
+      <li><button>Sign In</button></li>
+      <li><button>Log In</button></li>
+    </ul>
+  </div>
+
+  <div class="space"></div>
+
+  <div class="annonces-container">
+    <div class="annonce">
+      <h2>Annonce 1</h2>
+      <p>Description de l'annonce 1.</p>
+      <button>Réserver</button>
+    </div>
+    <div class="annonce">
+      <h2>Annonce 2</h2>
+      <p>Description de l'annonce 2.</p>
+      <button>Réserver</button>
+    </div>
+    <div class="annonce">
+      <h2>Annonce 3</h2>
+      <p>Description de l'annonce 3.</p>
+      <button>Réserver</button>
+    </div>
+  </div>
+
+  <div class="background-div"></div>
+</body>
+</html>
