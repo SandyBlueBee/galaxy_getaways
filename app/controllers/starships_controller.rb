@@ -1,6 +1,6 @@
 class StarshipsController < ApplicationController
   before_action :set_starship, only: %i[show edit update destroy]
-
+  skip_before_action :authenticate_user!, only: :index
   before_action :authorize_starship, only: %i[show new create edit update destroy]
   def index
     @starships = policy_scope(Starship)
@@ -39,7 +39,7 @@ class StarshipsController < ApplicationController
 
   def destroy
     @starship = Starship.find(params[:id])
-    
+
     @starship.destroy
     redirect_to starships_path
   end
