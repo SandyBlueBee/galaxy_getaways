@@ -1,0 +1,26 @@
+.grid {
+  border: 1px solid blue;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.starship-card {
+  border: 1px solid grey;
+  height: 200px;
+  display: flex;
+}
+
+.image {
+  border: 2px solid yellow;
+  width: 40%;
+  overflow: hidden;
+}
+
+.image img {
+  width: 100%;
+}
+
+.text-div {
+  margin: 15px 20px;
+}

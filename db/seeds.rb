@@ -22,35 +22,42 @@ url = "https://swapi.dev/api/starships"
 data = URI.open(url).read
 starships = JSON.parse(data) #  hash
 
-p starships
-
-starships.dig('results').each do |hash|
-  Starship.create!(name: hash["name"], model: hash["model"], manufacturer: hash["manufacturer"], length: hash["length"], hyperdrive_rating: hash["hyperdrive_rating"].to_i, price: hash["cost_in_credits"].to_i, max_speed: hash["max_speed"], passangers: hash["passangers"], location: "star wars", user_id: user.id)
+starships.dig('results').each_with_index do |hash, index|
+  starship = Starship.new(name: hash["name"], model: hash["model"], manufacturer: hash["manufacturer"], length: hash["length"], hyperdrive_rating: hash["hyperdrive_rating"].to_i, price: hash["cost_in_credits"].to_i, max_speed: hash["max_speed"], passangers: hash["passangers"], location: "star wars", user_id: user.id)
+  file = File.open("#{Rails.root}/db/photos_seed/photo_#{index + 1}.png")
+  starship.photos.attach(io: file, filename: "photo_#{index + 1}.png")
+  starship.save!
 end
 
-data = URI.open(starships['next']).read
-starships = JSON.parse(data) #  hash
+# data = URI.open(starships['next']).read
+# starships = JSON.parse(data) #  hash
 
-p starships
+# p starships
 
-starships.dig('results').each do |hash|
-  Starship.create!(name: hash["name"], model: hash["model"], manufacturer: hash["manufacturer"], length: hash["length"], hyperdrive_rating: hash["hyperdrive_rating"].to_i, price: hash["cost_in_credits"].to_i, max_speed: hash["max_speed"], passangers: hash["passangers"], location: "star wars", user_id: user.id)
-end
+# starships.dig('results').each do |hash|
+#   Starship.create!(name: hash["name"], model: hash["model"], manufacturer: hash["manufacturer"], length: hash["length"], hyperdrive_rating: hash["hyperdrive_rating"].to_i, price: hash["cost_in_credits"].to_i, max_speed: hash["max_speed"], passangers: hash["passangers"], location: "star wars", user_id: user.id)
+# end
 
-data = URI.open(starships['next']).read
-starships = JSON.parse(data) #  hash
+# data = URI.open(starships['next']).read
+# starships = JSON.parse(data) #  hash
 
-p starships
+# p starships
 
-starships.dig('results').each do |hash|
-  Starship.create!(name: hash["name"], model: hash["model"], manufacturer: hash["manufacturer"], length: hash["length"], hyperdrive_rating: hash["hyperdrive_rating"].to_i, price: hash["cost_in_credits"].to_i, max_speed: hash["max_speed"], passangers: hash["passangers"], location: "star wars", user_id: user.id)
-end
+# starships.dig('results').each do |hash|
+#   Starship.create!(name: hash["name"], model: hash["model"], manufacturer: hash["manufacturer"], length: hash["length"], hyperdrive_rating: hash["hyperdrive_rating"].to_i, price: hash["cost_in_credits"].to_i, max_speed: hash["max_speed"], passangers: hash["passangers"], location: "star wars", user_id: user.id)
+# end
 
-data = URI.open(starships['next']).read
-starships = JSON.parse(data) #  hash
+# data = URI.open(starships['next']).read
+# starships = JSON.parse(data) #  hash
 
-p starships
+# p starships
 
-starships.dig('results').each do |hash|
-  Starship.create!(name: hash["name"], model: hash["model"], manufacturer: hash["manufacturer"], length: hash["length"], hyperdrive_rating: hash["hyperdrive_rating"].to_i, price: hash["cost_in_credits"].to_i, max_speed: hash["max_speed"], passangers: hash["passangers"], location: "star wars", user_id: user.id)
-end
+# starships.dig('results').each do |hash|
+#   Starship.create!(name: hash["name"], model: hash["model"], manufacturer: hash["manufacturer"], length: hash["length"], hyperdrive_rating: hash["hyperdrive_rating"].to_i, price: hash["cost_in_credits"].to_i, max_speed: hash["max_speed"], passangers: hash["passangers"], location: "star wars", user_id: user.id)
+# # end
+
+# file = File.open("photos_seed/photo1.png")
+# starship = Starship.last
+# starship.photos.attach(io: file, filename: "photo1.png")
+# starship.save
+puts "Created starship"
