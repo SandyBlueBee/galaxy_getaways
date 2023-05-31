@@ -14,7 +14,9 @@
 
 require "open-uri"
 
-User.create(first_name: "John", last_name: "Doe", email: "john@example.com")
+User.destroy_all
+
+user = User.create!(first_name: "John", last_name: "Doe", email: "john@example.com", password: "azerty", password_confirmation: "azerty")
 
 url = "https://swapi.dev/api/starships"
 data = URI.open(url).read
@@ -23,7 +25,7 @@ starships = JSON.parse(data) #  hash
 p starships
 
 starships.dig('results').each do |hash|
-  Starship.create!(name: hash["name"], model: hash["model"], manufacturer: hash["manufacturer"], length: hash["length"], hyperdrive_rating: hash["hyperdrive_rating"].to_i, price: hash["cost_in_credits"].to_i, max_speed: hash["max_speed"], passangers: hash["passangers"], location: "star wars", user_id: User.last[:id])
+  Starship.create!(name: hash["name"], model: hash["model"], manufacturer: hash["manufacturer"], length: hash["length"], hyperdrive_rating: hash["hyperdrive_rating"].to_i, price: hash["cost_in_credits"].to_i, max_speed: hash["max_speed"], passangers: hash["passangers"], location: "star wars", user_id: user.id)
 end
 
 data = URI.open(starships['next']).read
@@ -32,7 +34,7 @@ starships = JSON.parse(data) #  hash
 p starships
 
 starships.dig('results').each do |hash|
-  Starship.create!(name: hash["name"], model: hash["model"], manufacturer: hash["manufacturer"], length: hash["length"], hyperdrive_rating: hash["hyperdrive_rating"].to_i, price: hash["cost_in_credits"].to_i, max_speed: hash["max_speed"], passangers: hash["passangers"], location: "star wars", user_id: User.last[:id])
+  Starship.create!(name: hash["name"], model: hash["model"], manufacturer: hash["manufacturer"], length: hash["length"], hyperdrive_rating: hash["hyperdrive_rating"].to_i, price: hash["cost_in_credits"].to_i, max_speed: hash["max_speed"], passangers: hash["passangers"], location: "star wars", user_id: user.id)
 end
 
 data = URI.open(starships['next']).read
@@ -41,7 +43,7 @@ starships = JSON.parse(data) #  hash
 p starships
 
 starships.dig('results').each do |hash|
-  Starship.create!(name: hash["name"], model: hash["model"], manufacturer: hash["manufacturer"], length: hash["length"], hyperdrive_rating: hash["hyperdrive_rating"].to_i, price: hash["cost_in_credits"].to_i, max_speed: hash["max_speed"], passangers: hash["passangers"], location: "star wars", user_id: User.last[:id])
+  Starship.create!(name: hash["name"], model: hash["model"], manufacturer: hash["manufacturer"], length: hash["length"], hyperdrive_rating: hash["hyperdrive_rating"].to_i, price: hash["cost_in_credits"].to_i, max_speed: hash["max_speed"], passangers: hash["passangers"], location: "star wars", user_id: user.id)
 end
 
 data = URI.open(starships['next']).read
@@ -50,5 +52,5 @@ starships = JSON.parse(data) #  hash
 p starships
 
 starships.dig('results').each do |hash|
-  Starship.create!(name: hash["name"], model: hash["model"], manufacturer: hash["manufacturer"], length: hash["length"], hyperdrive_rating: hash["hyperdrive_rating"].to_i, price: hash["cost_in_credits"].to_i, max_speed: hash["max_speed"], passangers: hash["passangers"], location: "star wars", user_id: User.last[:id])
+  Starship.create!(name: hash["name"], model: hash["model"], manufacturer: hash["manufacturer"], length: hash["length"], hyperdrive_rating: hash["hyperdrive_rating"].to_i, price: hash["cost_in_credits"].to_i, max_speed: hash["max_speed"], passangers: hash["passangers"], location: "star wars", user_id: user.id)
 end
