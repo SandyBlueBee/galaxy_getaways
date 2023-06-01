@@ -1,6 +1,7 @@
-<h1>New booking</h1>
-
-<%= simple_form_for(@booking, url:starship_bookings_path(@starship.id), method: :post) do |f| %>
-  <%= f.input :start_month %>
-  <%= f.submit %>
-<% end %>
+<div class="form-wrapper">
+  <h1>New booking</h1>
+  <%= simple_form_for(@booking, url:starship_bookings_path(@starship.id), method: :post) do |f| %>
+    <%= f.input :start_month %>
+    <%= f.submit %>
+  <% end %>
+</div>

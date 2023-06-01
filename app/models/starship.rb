@@ -6,4 +6,9 @@ class Starship < ApplicationRecord
 
   validates :passengers, presence: true
 
+  before_destroy :purge_photos
+
+  def purge_photos
+    photos.destroy_all
+  end
 end
