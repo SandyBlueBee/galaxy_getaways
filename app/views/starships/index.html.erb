@@ -2,20 +2,22 @@
   <h1>Welcome to Galaxy getaways!</h1>
 </div>
 <div class="container">
-<h2>Come and browse through a large variety of starships</h2>
-  <div class="grid">
-    <% @starships.each do |starship| %>
-      <div class="starship-card">
-      <div class="image"><%= cl_image_tag starship.photos.first.key%></div>
-      <div>
-      <div class="text-div">
-        <p>name: <%=link_to starship.name, starship_path(starship) %></p>
-        <p>price: $<%=starship.price %></p>
-      </div>
+<div class="info-card">
+  <h2>Come and browse through a large variety of starships</h2>
+    <div class="grid">
+      <% @starships.each do |starship| %>
+        <div class="starship-card">
+        <div class="image"><%= cl_image_tag starship.photos.first.key%></div>
+        <div>
+        <div class="text-div">
+          <p>name: <%=link_to starship.name, starship_path(starship) %></p>
+          <p>price: $<%=starship.price %></p>
+        </div>
 
-      </div>
-        <%# <%= starship.name %>
-      </div>
-    <% end %>
+        </div>
+          <%# <%= starship.name %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

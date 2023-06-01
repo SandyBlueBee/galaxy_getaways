@@ -3,7 +3,7 @@
   <div><%= link_to "Back to home",  starships_path, class: "button" %></div>
   <div class="inline">
     <div class="image">
-      <%= cl_image_tag @starship.photos.first.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag @starship.photos.first.key %>
     </div>
     <div class="text-div">
       <h1><%= @starship.name %></h1>
@@ -16,9 +16,6 @@
       <p>rating: <%= @starship.hyperdrive_rating %></p>
       <p>location: <%= @starship.location %></p>
       <p>price: <%= @starship.price %></p>
-      <%# <% @starship.photos.each do |photo| %>
-        <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-      <%# <% end %>
     </div>
     <div>
       <% if current_user.id != @starship.user_id%>
