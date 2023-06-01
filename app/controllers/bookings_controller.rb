@@ -7,8 +7,8 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    authorize @booking
     @starship = Starship.find(params[:starship_id])
+    authorize @booking
   end
 
   def create
