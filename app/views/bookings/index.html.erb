@@ -3,7 +3,7 @@
 <ul class="list-group">
   <% @bookings.each do |booking| %>
       <li class="list-group-item p-3 mb-2 bg-dark text-white">
-        <p>Starship:        <%= link_to booking.starship.name, starship_path(booking) %></p>
+        <p>Starship:        <%= link_to booking.starship.name, starship_path(booking.starship) %></p>
         <p>Starting month:  <%= booking.start_month %></p>
         <p>Status:          <%= booking.status %></p>
       </li>
