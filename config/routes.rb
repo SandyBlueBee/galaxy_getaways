@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :starships do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:destroy, :index]
+  resources :bookings, only: [:destroy, :update, :index]
 end
