@@ -7,12 +7,20 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def create?
+    record.user != user
+  end
+
+  def approved?
+    true
+  end
+
+  def declined?
     true
   end
 
   def update?
     record.user == user
-    # record: the restaurant passed to the `authorize` method in controller
+    # record: the starship passed to the `authorize` method in controller
     # user: the `current_user` signed in with Devise
   end
 

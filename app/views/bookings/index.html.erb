@@ -1,11 +1,12 @@
 <h1>All your bookings</h1>
 
-<ul><% @bookings.each do |booking| %>
-  <li>
-    <p>Starship:        <%= booking.starship.name %></p>
-    <p>Starting month:  <%= booking.start_month %></p>
-    <p>Status:          <%= booking.status %></p>
-  </li>
-</ul>
+<ul class="list-group">
+  <% @bookings.each do |booking| %>
+      <li class="list-group-item p-3 mb-2 bg-dark text-white">
+        <p>Starship:        <%= link_to booking.starship.name, starship_path(booking) %></p>
+        <p>Starting month:  <%= booking.start_month %></p>
+        <p>Status:          <%= booking.status %></p>
+      </li>
 
-<% end %>
+  <% end %>
+</ul>
