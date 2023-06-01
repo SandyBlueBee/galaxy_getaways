@@ -1,6 +1,41 @@
 <h1>New booking</h1>
+<div class="container">
+  <div class="inline"><%= link_to "Back",  starship_path(@starship), class: "button" %></div>
+  <div class="inline">
+    <div class="image">
+      <%= cl_image_tag @starship.photos.first.key %>
+    </div>
+    <div class="text-div">
+      <h1><%= @starship.name %></h1>
+      <p>model: <%= @starship.model %></p>
+      <%# <p>class:<%= @starship.starship_class</p> %>
+      <%# <p>manufacturer:<%= @starship.manufacturer</p> %>
+      <p>length: <%= @starship.length %></p>
+      <p>speed: <%= @starship.max_atmosphering_speed %></p>
+      <p>passengers: <%= @starship.passengers %></p>
+      <p>rating: <%= @starship.hyperdrive_rating %></p>
+      <p>location: <%= @starship.location %></p>
+      <p>price: <%= @starship.price %></p>
+    </div>
+  </div>
+</div>
 
-<%= simple_form_for(@booking, url:starship_bookings_path(@starship.id), method: :post) do |f| %>
-  <%= f.input :start_month %>
-  <%= f.submit %>
-<% end %>
+<div class="p-3 mb-2 bg-dark text-white border border-warning mb-40">
+  <%= simple_form_for(@booking, url:starship_bookings_path(@starship.id), method: :post) do |f| %>
+      <%= f.input :start_month,:label => 'Choose a month', :collection => [
+          ['January', '1'],
+          ['february', '2'],
+          ['march', '3'],
+          ['april', '4'],
+          ['may', '5'],
+          ['june', '6'],
+          ['july', '7'],
+          ['august', '8'],
+          ['september', '9'],
+          ['october', '10'],
+          ['november', '11'],
+          ['december', '12']
+        ] %>
+      <%= f.submit %>
+  <% end %>
+</div>
