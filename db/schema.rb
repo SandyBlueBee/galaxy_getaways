@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_01_103208) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_01_130427) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,7 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_103208) do
     t.string "starship_class"
     t.string "manufacturer"
     t.integer "length"
-    t.integer "passengers"
+    t.integer "crew"
     t.integer "max_atmosphering_speed"
     t.integer "hyperdrive_rating"
     t.bigint "price"

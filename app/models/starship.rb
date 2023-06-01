@@ -4,6 +4,6 @@ class Starship < ApplicationRecord
   has_many :booking, dependent: :destroy
   has_many_attached :photos
 
-  validates :passengers, presence: true
+  validates :crew, presence: true
 
 end

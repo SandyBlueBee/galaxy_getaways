@@ -49,7 +49,7 @@ class StarshipsController < ApplicationController
   private
 
   def starship_params
-    params.require(:starship).permit(:name, :model, :manufacturer, :price, :starship_class, :length, :passengers, :max_speed, :hyperdrive_rating, :location, photos: [])
+    params.require(:starship).permit(:name, :model, :price, :starship_class, :length, :crew, :max_speed, :location, photos: [])
   end
 
   def set_starship
