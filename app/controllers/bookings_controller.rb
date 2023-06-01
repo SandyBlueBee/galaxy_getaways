@@ -26,13 +26,29 @@ class BookingsController < ApplicationController
 
   def destroy
     authorize @booking
-    @booking = booking.find(params[:id])
+    @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to starship_path(@booking.starship), status: :see_other
   end
 
   def update
     @bookings = policy_scope(Booking)
+  end
+
+  def approved
+    @booking = Booking.find(params[:id])
+    authorize @booking
+
+    @booking.update(status: 1)
+    redirect_to requests_path, status: :see_other
+  end
+
+  def declined
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.update(status: 2)
+    @booking.status
+    redirect_to requests_path, status: :see_other
   end
 
   private

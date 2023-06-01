@@ -1,21 +1,30 @@
 <h1>My requests</h1>
-
 <ul class="list-group">
   <% @bookings.each do |booking| %>
-    <li class="list-group-item p-3 mb-2 bg-dark text-white">
-      <% if current_user.id == booking.starship.user_id %>
-        <p>Starship:        <%= link_to booking.starship.name, starship_path(booking) %></p>
-        <p>Starting month:  <%= booking.start_month %></p>
-        <div class="input-group">
-          <p>Status:          <%= booking.status %></p>
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">Confirm</button>
-            <button class="btn btn-outline-secondary btn-warning" type="button">Decline</button>
+    <% if current_user.id == booking.starship.user_id %>
+      <li class="list-group-item p-3 mb-2 bg-dark text-white">
+          <p>Starship:        <%= link_to booking.starship.name, starship_path(booking) %></p>
+          <p>Starting month:  <%= booking.start_month %></p>
+          <div class="input-group">
+            <p>Status:          <%= booking.status %></p>
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button">
+                <%= link_to "confirm",
+                  approve_request_path(booking),
+                  data: { turbo_method: :patch }
+                %>
+              </button>
+              <button class="btn btn-outline-secondary btn-warning" type="button">
+                <%= link_to "decline",
+                  decline_request_path(booking),
+                  data: {turbo_method: :patch, turbo_confirm: "Are you sure?"}
+                %>
+              </button>
+            
+            </div>
           </div>
-        </div>
-
-      <% end %>
-    </li>
+      </li>
+    <% end %>
   <% end %>
 </ul>
 <p><%=  %></p>

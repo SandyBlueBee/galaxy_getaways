@@ -7,6 +7,14 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def create?
+    record.user != user
+  end
+
+  def approved?
+    true
+  end
+
+  def declined?
     true
   end
 
