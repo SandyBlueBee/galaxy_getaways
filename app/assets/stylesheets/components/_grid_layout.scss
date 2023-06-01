@@ -17,10 +17,15 @@
   overflow: hidden;
 }
 
-.image img {
+img {
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+.profile {
+  height: 150px;
+  width: 150px;
 }
 
 .text-div {
