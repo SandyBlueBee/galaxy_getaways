@@ -2,7 +2,9 @@
 <div class="container">
   <div><%= link_to "Back to home",  starships_path, class: "button" %></div>
   <div class="inline">
-    <div class="image"></div>
+    <div class="image">
+      <%= cl_image_tag @starship.photos.first.key %>
+    </div>
     <div class="text-div">
       <h1><%= @starship.name %></h1>
       <p>model:<%= @starship.model %></p>
@@ -12,9 +14,6 @@
       <p>passengers:<%= @starship.passangers  %></p>
       <p>rating: <%= @starship.hyperdrive_rating %></p>
       <p>price:<%= @starship.price %></p>
-      <% @starship.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-      <% end %>
     </div>
     <div>
       <%= link_to "Book this starship", new_starship_booking_path(@starship), class: "button" %>
