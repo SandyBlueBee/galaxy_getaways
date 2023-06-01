@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    authorize @booking
     @starship = Starship.find(params[:starship_id])
   end
 
@@ -15,6 +16,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.starship = @starship
     @booking.user = current_user
+    authorize @booking
     @booking.status = 0
     if @booking.save
       redirect_to starship_path(@starship)
@@ -24,16 +26,18 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    authorize @booking
     @booking = booking.find(params[:id])
     @booking.destroy
     redirect_to starship_path(@booking.starship), status: :see_other
   end
 
-  private
+  def update
+    @bookings = policy_scope(Booking)
 
-  def authorize_booking
-    authorize @booking
   end
+
+  private
 
   def set_starship
     @starship = Starship.find(params[:starship_id])
