@@ -1,6 +1,5 @@
 class BookingsController < ApplicationController
   before_action :set_starship, only: %i[new create]
-  before_action :authorize_booking, only: %i[new create edit update destroy]
 
   def index
     @bookings = policy_scope(Booking)
