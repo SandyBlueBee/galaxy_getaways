@@ -17,6 +17,9 @@ require "open-uri"
 puts "creating admin user..."
 User.destroy_all
 user = User.create!(first_name: "John", last_name: "Doe", email: "john@example.com", password: "azerty", password_confirmation: "azerty")
+file = File.open("#{Rails.root}/db/photos_seed/admin.jpg")
+user.photo.attach(io: file, filename: "photo_admin.jpg")
+user.save!
 
 puts "parsing api..."
 url = "https://swapi.dev/api/starships"
