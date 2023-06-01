@@ -1,0 +1,23 @@
+<div class="info-card">
+    <h1>My starships</h1>
+    <p>You have <%= @user.starships.count %> starship(s) ready to book.</p>
+    <div class="inline">
+      <%= link_to "Add a new starship", new_starship_path, class: "button" %>
+    </div>
+    <div class="grid">
+      <% @user.starships.each do |starship| %>
+        <div class="starship-card">
+          <div class="image"><%= cl_image_tag starship.photos.first.key%></div>
+          <div>
+            <div class="text-div">
+              <p>name: <%=link_to starship.name, starship_path(starship) %></p>
+              <p>price: $<%=starship.price %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="inline">
+      <%= link_to "Return to dashboard", dashboard_path, class: "button" %>
+    </div>
+  </div>
