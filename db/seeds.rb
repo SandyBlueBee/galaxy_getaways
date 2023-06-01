@@ -14,14 +14,16 @@
 
 require "open-uri"
 
+puts "creating admin user..."
 User.destroy_all
-
 user = User.create!(first_name: "John", last_name: "Doe", email: "john@example.com", password: "azerty", password_confirmation: "azerty")
 
+puts "parsing api..."
 url = "https://swapi.dev/api/starships"
 data = URI.open(url).read
 starships = JSON.parse(data) #  hash
 
+puts "creating starships..."
 starships.dig('results').each_with_index do |hash, index|
   starship = Starship.new(name: hash["name"], model: hash["model"], manufacturer: hash["manufacturer"], length: hash["length"].to_f, hyperdrive_rating: hash["hyperdrive_rating"].to_f, price: hash["cost_in_credits"].to_i, max_atmosphering_speed: hash["max_atmosphering_speed"].to_i ||= rand(800..1100), passengers: hash["passengers"].to_i ||= rand(10..9999), location: "star wars", user_id: user.id)
   file = File.open("#{Rails.root}/db/photos_seed/photo_#{index + 1}.png")
@@ -29,6 +31,7 @@ starships.dig('results').each_with_index do |hash, index|
   starship.save!
 end
 
+puts "Ready!"
 # data = URI.open(starships['next']).read
 # starships = JSON.parse(data) #  hash
 
