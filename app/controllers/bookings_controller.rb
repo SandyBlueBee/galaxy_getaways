@@ -34,7 +34,6 @@ class BookingsController < ApplicationController
 
   def update
     @bookings = policy_scope(Booking)
-
   end
 
   private
@@ -45,6 +44,5 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:start_month)
-
   end
 end
