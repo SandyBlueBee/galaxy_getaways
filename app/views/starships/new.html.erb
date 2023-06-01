@@ -1,22 +1,20 @@
-
-
-<h1>New Starship</h1>
-
-<%# <%= cl_image_tag(Starship.last.photos.first.key) %>
-
-<%= simple_form_for(@starship) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :model %>
-  <%= f.input :starship_class, collection: [ "Galactic Empire", "Rebell", "Order Jedi", "Other" ] %>
-  <%= f.input :manufacturer %>
-  <%= f.input :length,  as: :integer %>
-  <%= f.input :passengers,  as: :integer %>
-  <%= f.input :max_atmosphering_speed, as: :integer %>
-  <%= f.input :hyperdrive_rating , as: :integer %>
-  <%= f.input :price, as: :integer %>
-  <%= f.input :location %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
-  <%= f.submit %>
-<% end %>
-
-<%= link_to "Back", starships_path %>
+<div class="form-wrapper">
+  <div class="inline">
+    <%= link_to "Back", dashboard_path, class: "button" %>
+  </div>
+  <h1>New Starship</h1>
+  <%= simple_form_for(@starship) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :model %>
+    <%= f.input :starship_class, collection: [ "Galactic Empire", "Rebell", "Order Jedi", "Other" ] %>
+    <%= f.input :manufacturer %>
+    <%= f.input :length,  as: :integer %>
+    <%= f.input :passengers,  as: :integer %>
+    <%= f.input :max_atmosphering_speed, as: :integer %>
+    <%= f.input :hyperdrive_rating , as: :integer %>
+    <%= f.input :price, as: :integer %>
+    <%= f.input :location %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
+    <%= f.submit %>
+  <% end %>
+</div>
