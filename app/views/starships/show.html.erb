@@ -1,6 +1,6 @@
 
 <div class="container">
-  <div><%= link_to "Back to home",  starships_path, class: "button" %></div>
+  <div class="inline"><%= link_to "Back to home",  starships_path, class: "button" %></div>
   <div class="inline">
     <div class="image">
       <%= cl_image_tag @starship.photos.first.key %>

@@ -10,4 +10,8 @@ class PagesController < ApplicationController
   def requests
     @bookings = Booking.all
   end
+
+  def my_starships
+    @user = current_user
+  end
 end

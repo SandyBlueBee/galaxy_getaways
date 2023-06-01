@@ -30,6 +30,8 @@ a {
 
 .inline {
   display: flex;
+  gap: 40px;
+  margin: 20px;
 }
 
 .right {
@@ -53,7 +55,6 @@ input {
   border-radius: 5px;
   margin-bottom: 15px;
   text-decoration: none;
-  margin: 20px;
 }
 
 .button:hover {
@@ -69,4 +70,9 @@ input {
 
 p {
   margin-bottom: 0.5em;
+}
+
+.form-wrapper {
+  width: 600px;
+  margin: 30px 150px;
 }

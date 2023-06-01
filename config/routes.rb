@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "starships#index"
   get "dashboard", to: "pages#dashboard"
   get "requests", to: "pages#requests"
+  get "my_starships", to: "pages#my_starships"
   patch "requests/:id/approved", to: "bookings#approved", as: "approve_request"
   patch "requests/:id/declined", to: "bookings#declined", as: "decline_request"
 
