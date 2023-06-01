@@ -1,5 +1,7 @@
 class StarshipsController < ApplicationController
   before_action :set_starship, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :authorize_starship, only: %i[show new create edit update destroy]
 
   def index
     @starships = policy_scope(Starship)
@@ -52,7 +54,7 @@ class StarshipsController < ApplicationController
   private
 
   def starship_params
-    params.require(:starship).permit(:name, :model, :manufacturer, :price, :starship_class, :length, :passangers, :max_speed, :hyperdrive_rating, :location, photos: [])
+    params.require(:starship).permit(:name, :model, :manufacturer, :price, :starship_class, :length, :passengers, :max_speed, :hyperdrive_rating, :location, photos: [])
   end
 
   def set_starship

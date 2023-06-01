@@ -20,6 +20,10 @@
   display: flex;
 }
 
+.right {
+  justify-content: right;
+}
+
 body {
   background-color: #1c1a1a;
 }
@@ -42,4 +46,15 @@ input {
 
 .button:hover {
   background-color: #554E4E;
+}
+
+.info-card {
+  padding: 30px 50px;
+  border: 1px solid #353133;
+  border-radius: 5px;
+  margin: 30px auto;
+}
+
+p {
+  margin-bottom: 0.5em;
 }

@@ -1,5 +1,4 @@
 .grid {
-  border: 1px solid blue;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 30px;
@@ -7,20 +6,37 @@
 
 .starship-card {
   border: 1px solid grey;
+  border-radius: 0 20px 0 0;
   height: 200px;
   display: flex;
 }
 
 .image {
-  border: 2px solid yellow;
-  width: 40%;
+  // border: 2px solid yellow;
+  width: 200px !important;
   overflow: hidden;
 }
 
 .image img {
+  height: 100%;
   width: 100%;
+  object-fit: cover;
 }
 
 .text-div {
   margin: 15px 20px;
+}
+
+// ipads
+
+@media only screen and (max-width: 1250px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }

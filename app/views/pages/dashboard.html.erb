@@ -1,20 +1,72 @@
 <div class="container">
-  <h1>My dashboard</h1>
-  <div class="inline">
-    <%= link_to "Add a new starship", new_starship_path, class: "button" %>
+  <h1>Welcome <%= @user.first_name %></h1>
+  <div class="info-card">
+  <h2>My user profile</h2>
+  <p><strong>First name: </strong><%= @user.first_name %></p>
+  <p><strong>Last name: </strong><%= @user.last_name %></p>
+  <p><strong>Email: </strong><%= @user.email %></p>
   </div>
-  <h2>My starships</h2>
-  <div class="grid">
-    <% @user.starships.each do |starship| %>
-      <div class="starship-card">
-        <div class="image"></div>
-        <div>
-          <div class="text-div">
-            <p>name: <%=link_to starship.name, starship_path(starship) %></p>
-            <p>price: $<%=starship.price %></p>
+  <div class="info-card">
+    <h2>My starships</h2>
+    <p>You have <%= @user.starships.count %> starship(s) ready to book.</p>
+    <div class="inline">
+      <%= link_to "Add a new starship", new_starship_path, class: "button" %>
+    </div>
+    <div class="grid">
+      <% @user.starships.last(3).each do |starship| %>
+        <div class="starship-card">
+          <div class="image"><%= cl_image_tag starship.photos.first.key%></div>
+          <div>
+            <div class="text-div">
+              <p>name: <%=link_to starship.name, starship_path(starship) %></p>
+              <p>price: $<%=starship.price %></p>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+    <div class="inline right">
+      <%= link_to "See all my starships", new_starship_path, class: "button" %>
+    </div>
+  </div>
+  <div class="info-card">
+    <h2>Pending booking requests</h2>
+    <p>You have <%= @user.starships.count %> pending booking(s) requests.</p>
+    <div class="grid">
+      <% @user.starships.first(3).each do |starship| %>
+        <div class="starship-card">
+          <div class="image"></div>
+          <div>
+            <div class="text-div">
+              <p>name: <%=link_to starship.name, starship_path(starship) %></p>
+              <p>price: $<%=starship.price %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="inline right">
+      <%= link_to "See all my pending requests", new_starship_path, class: "button" %>
+    </div>
+  </div>
+  <div class="info-card">
+    <h2>My reservations</h2>
+    <p>You have <%= @user.starships.count %> reservations.</p>
+    <div class="grid">
+      <% @user.starships.first(3).each do |starship| %>
+        <div class="starship-card">
+          <div class="image"></div>
+          <div>
+            <div class="text-div">
+              <p>name: <%=link_to starship.name, starship_path(starship) %></p>
+              <p>price: $<%=starship.price %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="inline right">
+      <%= link_to "See all my pending requests", new_starship_path, class: "button" %>
+    </div>
   </div>
 </div>
