@@ -2,16 +2,19 @@
 
 <ul class="list-group">
   <% @bookings.each do |booking| %>
-      <%# <li class="list-group-item p-3 mb-2 bg-dark text-white">
-        <p>Starship:        <%= link_to booking.starship.name, starship_path(booking)</p>
-        <%# <p>Starting month:  <%= booking.start_month</p> %>
-        <%# <p>Status:          <%= booking.status</p> %>
+      <%# <li class="list-group-item p-3 mb-2 bg-dark text-white"> %>
+        <%# <p>Starship:        <%= link_to booking.starship.name, starship_path(booking.starship) %>
+        <%# <p>Starting month:  <%= booking.start_month </p> %>
+        <%# <p>Status:          <%= booking.status %>
       <%# </li> %>
 
   <%# <% end %>
 <%# </ul> %>
 
 <div class="container">
+  <div class="inline">
+    <%= link_to "Return to dashboard", dashboard_path, class: "button" %>
+  </div>
   <div class="info-card">
     <h2>My reservations</h2>
     <p>You have <%= @bookings.count %> reservations.</p>
@@ -19,7 +22,7 @@
       <% @bookings.each do |booking| %>
         <div class="booking-card">
           <div class="text-div">
-            <p><strong>starship: </strong> <%= link_to booking.starship.name, starship_path(booking) %> </p>
+            <p><strong>starship: </strong> <%= link_to booking.starship.name, starship_path(booking.starship) %> </p>
             <p><strong>Reserved month:</strong> <%= booking.start_month %> </p>
             <p><strong>status: </strong><%= booking.status %></p>
           </div>
@@ -27,7 +30,4 @@
       <% end %>
     </div>
   </div>
-    <div class="inline">
-      <%= link_to "Return to dashboard", dashboard_path, class: "button" %>
-    </div>
 </div>
