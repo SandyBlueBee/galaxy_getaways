@@ -3,11 +3,22 @@
 </div>
 <div class="container">
 <div class="info-card">
+    <div class="inline">
+      <%= form_with url: starships_path, method: :get, class: "inline fill-width" do %>
+        <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type the name of your next starship"
+        %>
+        <%= submit_tag "Search", name: "", class: "button" %>
+        <%= link_to "Reset", starships_path, class: "button" %>
+      <% end %>
+    </div>
   <h2>Come and browse through a large variety of starships</h2>
     <div class="grid">
       <% @starships.each do |starship| %>
         <div class="starship-card">
-        <div class="image"><%= cl_image_tag starship.photos.first.key%></div>
+        <div class="image"><%= cl_image_tag starship.photos.first.key %></div>
         <div>
         <div class="text-div">
           <p>name: <%=link_to starship.name, starship_path(starship) %></p>
@@ -15,7 +26,6 @@
         </div>
 
         </div>
-          <%# <%= starship.name %>
         </div>
       <% end %>
     </div>

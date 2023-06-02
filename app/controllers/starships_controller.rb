@@ -3,7 +3,11 @@ class StarshipsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @starships = policy_scope(Starship)
+    @starships = Starship.all
+    if params[:query].present?
+      sql_subquery = "name ILIKE :query"
+      @starships = @starships.where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   def show

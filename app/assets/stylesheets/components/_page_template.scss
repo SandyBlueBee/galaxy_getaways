@@ -11,12 +11,20 @@ p {
 a {
   color: #f47938;
   text-decoration: none;
+
 }
 
+option {
+  color: black;
+}
+
+.form-control {
+  background-color: black ;
+}
 
 .banner {
-  height: 80vh;
-  background-image: url("https://images.unsplash.com/photo-1445905595283-21f8ae8a33d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80");
+  height: 50vh;
+  background-image: url("https://storage.googleapis.com/pod_public/1300/145945.jpg");
   background-size: cover;
   width: 100%;
   display: flex;
@@ -25,7 +33,8 @@ a {
 }
 
 .container {
-  margin: 0 60px;
+  width: 90vw;
+  margin: 0 auto;
 }
 
 .inline {
@@ -34,18 +43,27 @@ a {
   margin: 20px;
 }
 
+.fill-width {
+  width: 100%;
+}
+
 .right {
   justify-content: right;
 }
 
 body {
   background-color: #1c1a1a;
+  min-height: 100vh;
+  position: relative;
 }
 
 input {
-  background-color: grey;;
+  background-color: grey;
 }
 
+.space {
+  padding: 40px;
+}
 
 .button {
   color: white !important;
@@ -53,7 +71,15 @@ input {
   // border: 1px solid #1c1a1a;
   padding: 8px 16px;
   border-radius: 5px;
-  margin-bottom: 15px;
+  text-decoration: none;
+}
+
+.btn {
+  color: white !important;
+  background-color: #353133;
+  // border: 1px solid #1c1a1a;
+  padding: 8px 16px;
+  border-radius: 5px;
   text-decoration: none;
 }
 

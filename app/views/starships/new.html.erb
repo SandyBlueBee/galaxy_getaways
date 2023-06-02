@@ -6,7 +6,7 @@
   <%= simple_form_for(@starship) do |f| %>
     <%= f.input :name %>
     <%= f.input :model %>
-    <%= f.input :starship_class %>
+    <%= f.input :starship_class, collection: [ "Galactic Empire", "Rebell", "Order Jedi", "Other" ] %>
     <%= f.input :manufacturer %>
     <%= f.input :length,  as: :integer %>
     <%= f.input :passengers,  as: :integer %>
@@ -17,5 +17,4 @@
     <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
     <%= f.submit %>
   <% end %>
-
 </div>
