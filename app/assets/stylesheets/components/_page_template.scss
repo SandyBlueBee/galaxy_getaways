@@ -29,7 +29,8 @@ option {
 }
 
 .container {
-  margin: 0 60px;
+  width: 90vw;
+  margin: 0 auto;
 }
 
 .inline {
@@ -44,12 +45,17 @@ option {
 
 body {
   background-color: #1c1a1a;
+  min-height: 100vh;
+  position: relative;
 }
 
 input {
-  background-color: grey;;
+  background-color: grey;
 }
 
+.space {
+  padding: 40px;
+}
 
 .button {
   color: white !important;
