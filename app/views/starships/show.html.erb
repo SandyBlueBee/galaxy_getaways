@@ -9,25 +9,22 @@
       <div class="text-div">
         <h1><%= @starship.name %></h1>
         <p>model: <%= @starship.model %></p>
-        <%# <p>class:<%= @starship.starship_class</p> %>
-        <%# <p>manufacturer:<%= @starship.manufacturer</p> %>
         <p>length: <%= @starship.length %> (Meters)</p>
         <p>speed: <%= @starship.max_atmosphering_speed %> (Light Speed)</p>
         <p>crew: <%= @starship.crew %></p>
-        <%# <p>rating: <%= @starship.hyperdrive_rating %>
         <p>location: <%= @starship.location %></p>
         <p>price: <%= @starship.price %></p>
-        </div>
+        <div class="space"></div>
         <% if !current_user || current_user.id != @starship.user_id%>
           <%= link_to "Book this starship", new_starship_booking_path(@starship), class: "button" %>
         <% end %>
+        <div class="inline">
+          <% if policy(@starship).edit? %>
+            <%= link_to "Edit",  edit_starship_path, class: "button" %>
+            <%= link_to "Delete",  starship_path(@starship), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button" if policy(@starship).destroy? %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="inline">
-    <% if policy(@starship).edit? %>
-      <%= link_to "Edit",  edit_starship_path, class: "button" %>
-    <% end %>
-    <%= link_to "Delete",  starship_path(@starship), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button" if policy(@starship).destroy? %>
   </div>
 </div>

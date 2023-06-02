@@ -1,6 +1,6 @@
 
-<div class="container">
-<h1 class="text-center border-bottom pb-4 mb-5 mt-5">Book "<%= link_to @starship.name,  starship_path(@starship) %>"</h1>
+<div class="form-wrapper">
+  <h1 class="text-center border-bottom pb-4 mb-5 mt-5">Book "<%= link_to @starship.name,  starship_path(@starship) %>"</h1>
   <div class="inline mb-5">
     <div class="image">
       <%= cl_image_tag @starship.photos.first.key %>
@@ -8,23 +8,19 @@
     <div>
       <div class="text-div">
         <p> <span class="fw-bold">model:</span> <%= @starship.model %></p>
-        <%# <p>class:<%= @starship.starship_class</p> %>
-        <%# <p>manufacturer:<%= @starship.manufacturer</p> %>
         <p> <span class="fw-bold">length:</span> <%= @starship.length %></p>
         <p> <span class="fw-bold">speed:</span> <%= @starship.max_atmosphering_speed %></p>
-        <p> <span class="fw-bold">passengers:</span> <%= @starship.passengers %></p>
+        <p> <span class="fw-bold">crew:</span> <%= @starship.crew %></p>
         <p> <span class="fw-bold">rating:</span> <%= @starship.hyperdrive_rating %></p>
         <p> <span class="fw-bold">location:</span> <%= @starship.location %></p>
         <p> <span class="fw-bold">price:</span> <%= @starship.price %></p>
       </div>
     </div>
   </div>
-</div>
-
-<div class="p-3 text-white border border-warning m-5 mb-5">
-  <%= simple_form_for(@booking, url:starship_bookings_path(@starship.id), method: :post) do |f| %>
-      <%= f.input :start_month, :label => 'Months', :include_blank => false, :collection => @collection_month%>
-      <%= f.submit %>
-      <% console %>
-  <% end %>
+  <div class="p-3 text-white border border-warning m-5 mb-5">
+    <%= simple_form_for(@booking, url:starship_bookings_path(@starship.id), method: :post) do |f| %>
+        <%= f.input :start_month, :label => 'Months', :include_blank => false, :collection => @collection_month%>
+        <%= f.submit %>
+    <% end %>
+  </div>
 </div>

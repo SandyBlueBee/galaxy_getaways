@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :starships, dependent: :destroy
+  has_many :bookings, dependent: :destroy
   has_one_attached :photo
 
   before_destroy :purge_photo

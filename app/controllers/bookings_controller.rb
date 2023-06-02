@@ -44,6 +44,7 @@ class BookingsController < ApplicationController
     @booking.status = 0
     if @booking.save
       redirect_to starship_path(@starship)
+      flash.notice = "This starship has been booked!"
     else
       render :new, status: :unprocessable_entity
     end
