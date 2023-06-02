@@ -18,6 +18,10 @@ option {
   color: black;
 }
 
+.form-control {
+  background-color: black ;
+}
+
 .banner {
   height: 50vh;
   background-image: url("https://storage.googleapis.com/pod_public/1300/145945.jpg");
@@ -38,6 +42,10 @@ option {
   margin: 20px;
 }
 
+.fill-width {
+  width: 100%;
+}
+
 .right {
   justify-content: right;
 }
@@ -52,6 +60,15 @@ input {
 
 
 .button {
+  color: white !important;
+  background-color: #353133;
+  // border: 1px solid #1c1a1a;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn {
   color: white !important;
   background-color: #353133;
   // border: 1px solid #1c1a1a;
