@@ -29,7 +29,7 @@ starships = JSON.parse(data) #  hash
 
 puts "creating starships..."
 starships.dig('results').each_with_index do |hash, index|
-  starship = Starship.new(name: hash["name"], model: hash["model"], manufacturer: hash["manufacturer"], length: hash["length"].to_f, hyperdrive_rating: hash["hyperdrive_rating"].to_f, price: hash["cost_in_credits"].to_i, max_atmosphering_speed: hash["max_atmosphering_speed"].to_i ||= rand(800..1100), passengers: hash["passengers"].to_i ||= rand(10..9999), location: "star wars", user_id: user.id)
+  starship = Starship.new(name: hash["name"], model: hash["model"], length: hash["length"].to_f, price: hash["cost_in_credits"].to_i, max_atmosphering_speed: hash["max_atmosphering_speed"].to_i ||= rand(800..1100), crew: hash["crew"].to_i ||= rand(10..9999), location: "star wars", user_id: user.id)
   file = File.open("#{Rails.root}/db/photos_seed/photo_#{index + 1}.png")
   starship.photos.attach(io: file, filename: "photo_#{index + 1}.png")
   starship.save!

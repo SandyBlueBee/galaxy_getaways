@@ -4,10 +4,9 @@ class Starship < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many_attached :photos
 
-  validates :passengers, presence: true
-
+  validates :crew, presence: true
+  
   before_destroy :purge_photos
-
   def purge_photos
     photos.destroy_all
   end
