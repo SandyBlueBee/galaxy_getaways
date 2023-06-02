@@ -19,7 +19,7 @@
       <% @bookings.each do |booking| %>
         <div class="booking-card">
           <div class="text-div">
-            <p><strong>starship: </strong> <%= link_to booking.starship.name, starship_path(booking) %> </p>
+            <p><strong>starship: </strong> <%= link_to booking.starship.name, starship_path(booking.starship) %> </p>
             <p><strong>Reserved month:</strong> <%= booking.start_month %> </p>
             <p><strong>status: </strong><%= booking.status %></p>
           </div>
