@@ -12,6 +12,9 @@
 <%# </ul> %>
 
 <div class="container">
+  <div class="inline">
+    <%= link_to "Return to dashboard", dashboard_path, class: "button" %>
+  </div>
   <div class="info-card">
     <h2>My reservations</h2>
     <p>You have <%= @bookings.count %> reservations.</p>
@@ -27,7 +30,4 @@
       <% end %>
     </div>
   </div>
-    <div class="inline">
-      <%= link_to "Return to dashboard", dashboard_path, class: "button" %>
-    </div>
 </div>
