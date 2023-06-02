@@ -22,8 +22,13 @@
 
 
 .image {
-  // border: 2px solid yellow;
   width: 200px !important;
+  overflow: hidden;
+}
+
+.image-show {
+  width: 500px;
+  height: 380px;
   overflow: hidden;
 }
 
@@ -45,13 +50,13 @@ img {
 
 // ipads
 
-@media only screen and (max-width: 1250px) {
+@media only screen and (max-width: 1450px) {
   .grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 1150px) {
   .grid {
     grid-template-columns: 1fr;
   }

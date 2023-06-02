@@ -9,9 +9,49 @@
         <p><strong>Last name: </strong><%= @user.last_name %></p>
         <p><strong>Email: </strong><%= @user.email %></p>
       </div>
-      <div class="profile">
-        <%= cl_image_tag current_user.photo.key %>
-      </div>
+      <% if @user.photo.key %>
+        <div class="profile">
+          <%= cl_image_tag current_user.photo.key %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="info-card">
+    <h2>Pending booking requests</h2>
+    <% list = [] %>
+    <% @bookings.each do |booking| %>
+    <% list << booking if booking.starship.user_id == current_user.id %>
+    <% end %>
+    <p>You have <%= list.count %> pending booking(s) requests.</p>
+    <div class="grid">
+      <% list.first(3).each do |booking| %>
+        <div class="booking-card">
+          <div class="text-div">
+            <p><strong>starship: </strong> <%= booking.starship.name %> </p>
+            <p><strong>Reserved month:</strong> <%= booking.start_month %> </p>
+            <p><strong>status: </strong><%= booking.status %></p>
+          <% if booking.status == "in progress" %>
+            <div class="inline">
+              <button class="button">
+                <%= link_to "confirm",
+                  approve_request_path(booking),
+                  data: { turbo_method: :patch }
+                %>
+              </button>
+              <button class="button">
+                <%= link_to "decline",
+                  decline_request_path(booking),
+                  data: {turbo_method: :patch, turbo_confirm: "Are you sure?"}
+                %>
+              </button>
+            </div>
+          <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="inline right">
+      <%= link_to "See all my pending requests",  requests_path, class: "button" %>
     </div>
   </div>
   <div class="info-card">
@@ -57,42 +97,6 @@
     </div>
     <div class="inline right">
       <%= link_to "See all my starships", my_starships_path, class: "button" %>
-    </div>
-  </div>
-  <div class="info-card">
-    <h2>Pending booking requests</h2>
-    <% list = [] %>
-    <% @bookings.each do |booking| %>
-    <% list << booking if booking.starship.user_id == current_user.id %>
-    <% end %>
-    <p>You have <%= list.count %> pending booking(s) requests.</p>
-    <div class="grid">
-      <% list.first(3).each do |booking| %>
-        <div class="booking-card">
-          <div class="text-div">
-            <p><strong>starship: </strong> <%= booking.starship.name %> </p>
-            <p><strong>Reserved month:</strong> <%= booking.start_month %> </p>
-            <p><strong>status: </strong><%= booking.status %></p>
-          <div class="inline">
-            <button class="button">
-              <%= link_to "confirm",
-                approve_request_path(booking),
-                data: { turbo_method: :patch }
-              %>
-            </button>
-            <button class="button">
-              <%= link_to "decline",
-                decline_request_path(booking),
-                data: {turbo_method: :patch, turbo_confirm: "Are you sure?"}
-              %>
-            </button>
-          </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <div class="inline right">
-      <%= link_to "See all my pending requests",  requests_path, class: "button" %>
     </div>
   </div>
 </div>
