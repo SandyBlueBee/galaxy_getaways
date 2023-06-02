@@ -57,11 +57,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_02_114328) do
     t.string "name"
     t.string "model"
     t.string "starship_class"
-    #t.string "manufacturer"
+    t.string "manufacturer"
     t.integer "length"
     t.integer "crew"
     t.integer "max_atmosphering_speed"
-    #t.integer "hyperdrive_rating"
+    t.integer "hyperdrive_rating"
     t.bigint "price"
     t.string "location"
     t.bigint "user_id", null: false
