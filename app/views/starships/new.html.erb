@@ -7,11 +7,11 @@
     <%= f.input :name %>
     <%= f.input :model %>
     <%= f.input :starship_class, collection: [ "Galactic Empire", "Rebell", "Order Jedi", "Other" ] %>
-    <%= f.input :manufacturer %>
+    <%# <%= f.input :manufacturer %>
     <%= f.input :length,  as: :integer %>
-    <%= f.input :passengers,  as: :integer %>
+    <%= f.input :crew,  as: :integer %>
     <%= f.input :max_atmosphering_speed, as: :integer %>
-    <%= f.input :hyperdrive_rating , as: :integer %>
+    <%# <%= f.input :hyperdrive_rating , as: :integer %>
     <%= f.input :price, as: :integer %>
     <%= f.input :location %>
     <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
